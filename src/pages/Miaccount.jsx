@@ -24,20 +24,20 @@ const handleSuccess = (type) => {
 
 return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
-    <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="bg-white p-10 rounded-lg shadow-lg ">
         <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Mi Cuenta</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Ingreso a su cuenta</h1>
         <p className="text-gray-600">Inicia sesión o regístrate</p>
         <div className="flex justify-center mt-4">
             <button
             onClick={() => setIsLogin(true)}
-            className={`px-4 py-2 rounded-l-lg ${isLogin ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+            className={`px-4 py-2 rounded-l-lg ${isLogin ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700'}`}
             >
             Iniciar Sesión
             </button>
             <button
             onClick={() => setIsLogin(false)}
-            className={`px-4 py-2 rounded-r-lg ${!isLogin ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+            className={`px-4 py-2 rounded-r-lg ${!isLogin ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700'}`}
             >
             Registrarse
             </button>
