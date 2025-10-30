@@ -3,22 +3,22 @@ import CategoryItem from './CategoryItem';
 const CategoriesList = () => {
   const categories = [
     {
-      href: 'mens-clothing',
+      href: 'computadora',
       name: "Computadoras",
       imageURL: '/images/pcbanner.webp',
     },
     {
-      href: 'womens-clothing',
-      name: "Notebooks",
+      href: 'notebook',
+      name: "Notebook",
       imageURL: '/images/notebookbanner.webp',
     },
     {
-      href: 'jewelery',
+      href: 'celulares',
       name: 'Celulares',
       imageURL: '/images/celularbanner.webp',
     },
     {
-      href: 'electronics',
+      href: 'televisores',
       name: 'Televisores',
       imageURL: '/images/tvbanner.webp',
     },
