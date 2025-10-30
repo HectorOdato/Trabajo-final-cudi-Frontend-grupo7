@@ -1,27 +1,30 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const CategoryItem = ({ category }) => {
   return (
-    <div className="relative overflow-hidden h-96 w-full rounded-lg group">
-      <Link to={`/category/${category.href}`}>
-        <div className="w-full h-full cursor-pointer relative">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
+    <div className="group flex flex-col items-center justify-between bg-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out w-[280px] h-[360px]">
+      <Link to={`/category/${category.href}`} className="flex flex-col items-center justify-between w-full h-full">
+        <div className="flex items-center justify-center flex-grow">
           <img
             src={category.imageURL}
             alt={category.name}
-            className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-110"
+            className="object-contain w-48 h-48 transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
+        </div>
+        <div className="w-full text-center mt-4">
+          <h3 className="text-lg font-bold text-gray-800 uppercase tracking-wide">
+            {category.name}
+          </h3>
 
-          <div className="absolute bottom-0 left-0 w-full p-4 z-20">
-            <h3 className="text-white text-2xl sm:text-3xl font-semibold mb-2">
-              {category.name}
-            </h3>
-            <p className="text-gray-300 text-sm">Explora {category.name}</p>
+          <div className="flex justify-center mt-2">
+            <span className="inline-flex items-center justify-center w-10 h-10 bg-white rounded-full shadow group-hover:bg-gray-200 transition">
+              <span className="text-gray-700 text-xl">→</span>
+            </span>
           </div>
         </div>
       </Link>
     </div>
   );
-}
+};
 
-export default CategoryItem
+export default CategoryItem;

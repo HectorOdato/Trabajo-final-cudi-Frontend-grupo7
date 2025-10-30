@@ -9,12 +9,18 @@ const Navbar = () => {
   const isAdmin = true
 
   return (
-    <nav className="flex justify-between items-center px-10 py-10 bg-black shadow">
-      <div className="flex items-center gap-10">
+    <nav className="flex justify-between px-50 py-5 bg-neutral-700">
+      <div className="flex justify-between">
+      <Link
+        className="text-2xl font-bold text-red-500 items-center space-x-2 flex"
+        to="/">
+        TecnoPro
+      </Link>
+      </div>
+      <div className="flex ml-auto ">
         <NavbarBase user={user} cart={cart} />
       </div>
-
-      <div className="flex items-center gap-8">
+      <div className="flex flex-col gap-8 justify-end ml-8">
         <Dashboard isAdmin={isAdmin} />
         <AuthStatus user={user} />
       </div>
