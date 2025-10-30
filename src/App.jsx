@@ -5,6 +5,7 @@ import AdminPage from './pages/AdminPage';
 import CategoryPage from './pages/CategoryPage';
 import MiAccount from './pages/Miaccount';
 import NavCategorias from './components/NavCategorias';
+import Footer from './components/Footer';
 
 const App = () => {
   const user = {role: "admin"}
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/secret-dashboard" element={user.role === "admin" ? <AdminPage/> : <Navigate to="/login" />} />
         <Route path='/category/:category' element={<CategoryPage/>}/>
       </Routes>
+      <Footer/>
     </Router>
   );
 }

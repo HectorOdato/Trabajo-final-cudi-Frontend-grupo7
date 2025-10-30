@@ -14,7 +14,7 @@ const Navbar = () => {
       <Link
         className="text-2xl font-bold text-red-500 items-center space-x-2 flex"
         to="/">
-        TecnoPro
+          <p className="text-6xl">TecnoPro</p>
       </Link>
       </div>
       <div className="flex ml-auto ">
@@ -27,5 +27,4 @@ const Navbar = () => {
     </nav>
   );
 }
-
 export default Navbar
