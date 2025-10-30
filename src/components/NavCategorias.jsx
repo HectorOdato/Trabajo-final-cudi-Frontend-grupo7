@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 
-const NavCategorias = () => {
+
+
+function NavCategorias() {
   const categorias = [
-    { nombre: "Computadoras", path: "/category/mens-clothing" },
-    { nombre: "Notebooks", path: "/category/womens-clothing" },
-    { nombre: "Celulares", path: "/category/jewelery" },
-    { nombre: "Televisores", path: "/category/electronics" },
+    { nombre: "Computadoras", path: "/category/Computadora"},
+    { nombre: "Notebooks", path: "/category/notebook"},
+    { nombre: "Celulares", path: "/category/celulares"},
+    { nombre: "Televisores", path: "/category/televisores"},
   ];
 
   return (
@@ -23,6 +25,6 @@ const NavCategorias = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default NavCategorias;
