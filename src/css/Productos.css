@@ -23,6 +23,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+h1.titulo-computadoras{
+    text-align: center;
+    font-size: 40px;
+}
+
 div p{
     margin: 10px;
 }
@@ -48,4 +53,14 @@ div p{
 img{
     width: 100%;
     height: auto;
+}
+
+.agregarCarrito{
+    background-color: #e90808;
+    color: white;
+    margin: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

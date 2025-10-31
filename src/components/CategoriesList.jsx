@@ -1,26 +1,32 @@
+import { Link } from 'react-router-dom';
 import CategoryItem from './CategoryItem';
 
 const CategoriesList = () => {
   const categories = [
     {
-      href: 'computadora',
+      href: 'computadoras',
       name: "Computadoras",
       imageURL: '/images/pcbanner.webp',
+      Link: '/computadoras',
+      
     },
     {
       href: 'notebook',
       name: "Notebook",
       imageURL: '/images/notebookbanner.webp',
+      Link: '/notebook',
     },
     {
       href: 'celulares',
       name: 'Celulares',
       imageURL: '/images/celularbanner.webp',
+      Link: '/celulares',
     },
     {
       href: 'televisores',
       name: 'Televisores',
       imageURL: '/images/tvbanner.webp',
+      Link: '/televisores',
     },
   ];
 

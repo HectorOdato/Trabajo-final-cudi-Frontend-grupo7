@@ -1,13 +1,14 @@
-import { Link, Router } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 
 
 function NavCategorias() {
   const categorias = [
-    { nombre: "Computadoras", path: "/category/Computadora"},
-    { nombre: "Notebooks", path: "/category/notebook"},
-    { nombre: "Celulares", path: "/category/celulares"},
-    { nombre: "Televisores", path: "/category/televisores"},
+    { nombre: "Computadoras", path: "/computadoras" },
+    { nombre: "Notebooks", path: "/notebook"},
+    { nombre: "Celulares", path: "/celulares"},
+    { nombre: "Televisores", path: "/televisores"},
   ];
 
   return (
