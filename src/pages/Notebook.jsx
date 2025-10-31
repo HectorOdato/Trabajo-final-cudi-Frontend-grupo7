@@ -1,49 +1,54 @@
 import React from 'react'
-import img_1 from '/public/images/product_1.png'
-import img_2 from '/public/images/product_2.png'
-import img_3 from '/public/images/product_3.png'
-import img_4 from '/public/images/product_4.png'
+import '../css/Productos.css'
+import img_1 from '/public/images/Macbook.png'
+import img_2 from '/public/images/aorus.png'
+import img_3 from '/public/images/Notebook_asus.png'
+import img_4 from '/public/images/Notebook_del_gobierno.png'
 
 const Notebook = () => {
   return (
     <>
-    <div>Notebook</div>
+    <h1 className='titulo-computadoras'>Notebook en Stock</h1>
     <section className='productos-computadoras'>
                     <div className='contenedor-product'>
-                    <h2 className='subtitulo'>Producto 1</h2>
-                    <p>Notebook AMD Rizen 5 Pro 3350 16GB de Ram 240GB SSD y 1TB HDD con Wifi</p>
-                    <p>precio: 200$</p>
+                    <h2 className='subtitulo'>MacBook</h2>
+                    <p>Macbook Pro 16 M4 Pro (512gb Ssd) 24gb Ram - Space Black</p>
+                    <p>precio: 1500$</p>
                     <img
                         src={img_1}
                         alt="img no disponible" 
                     />
+                    <button className='agregarCarrito'>Agregar al Carrito</button>
                     </div>
                     <div className='contenedor-product-2'>
-                    <h2>Producto 2</h2>
-                    <p>Notebook Pro, AMD Ryzen 5 2600 3.40GHz, 16GB, 1TB + 240GB SSD, NVIDIA GeForce GTX 1650, FreeDos ― Incluye Monitor 23.6"/Teclado/Mouse</p>
-                    <p>precio: 300$</p>
+                    <h2>notebook aorus</h2>
+                    <p>Aorus 15.6 Ips I7-12700h 16gb Rtx 3070 512gb Ssd Color Negro</p>
+                    <p>precio: 400$</p>
                     <img 
                         src={img_2}
                         alt="img no disponible" 
                     />
+                    <button className='agregarCarrito'>Agregar al Carrito</button>
                     </div>
                     <div className='contenedor-product'>
-                    <h2>Producto 3</h2>
-                    <p>Notebook del Gobierno, Intel Core i5 9400F 2.90GHz, 16GB, 480GB SSD, NVIDIA GeForce GTX 1650 SUPER, FreeDOS</p>
-                    <p>precio: 250$</p>
+                    <h2>Notebook Asus</h2>
+                    <p>Asus Vivobook 17.3'' Ryzen 7, 16GB RAM, 1TB SSD, Windows 11, Negro</p>
+                    <p>precio: 500$</p>
                     <img 
                         src={img_3}
                         alt="img no disponible" 
                     />
+                    <button className='agregarCarrito'>Agregar al Carrito</button>
                     </div>
                     <div className='contenedor-product-2'>
-                    <h2>Producto 4</h2>
-                    <p>Notebook ip Intel Core i3-10100F 16GB DDR4 240GB SSD + 1TB HDD</p>
-                    <p>precio: 120$</p>
+                    <h2>Notebook del gobierno</h2>
+                    <p>Conectar Igualdad G4 Intel Atom N2600, 2 GB de memoria RAM DDR3 y un disco rÃ­gido de 320 GB</p>
+                    <p>precio: 3$</p>
                     <img 
                         src={img_4}
                         alt="img no disponible" 
                     />
+                    <button className='agregarCarrito'>Agregar al Carrito</button>
                     </div>
                 </section>
     </>
