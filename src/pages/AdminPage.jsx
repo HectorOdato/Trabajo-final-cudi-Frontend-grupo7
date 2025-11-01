@@ -50,7 +50,7 @@ const AdminPage = () => {
   return (
     <div className='min-h-screen relative overflow-hidden'>
       <div className='relative z-10 container mx-auto px-4 py-16'>
-        <h1 className='text-4xl font-bold mb-8 text-red-500 text-center'>Admin Panel</h1>
+        <h1 className='text-4xl font-bold mb-8 text-black text-center'>Panel de Administracion</h1>
 
         <AdminTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         {activeTab === 'create' && (
