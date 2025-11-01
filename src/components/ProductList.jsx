@@ -45,7 +45,7 @@ const ProductList = ({products, removeProducts, toggleActive}) => {
           key={p.id}
           className="hover:bg-zinc-900/80 transition-colors duration-300"
         >
-          <td className="px-6 py-8 whitespace-nowrap">
+          <td className="px-10 py-8 whitespace-nowrap">
             <div className="flex items-center">
               <div className="flex-shrink-0 h-10 w-10">
                 <img
