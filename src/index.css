@@ -1,5 +1,49 @@
 @import "tailwindcss";
+html, body, #root {
+    height: 100%;
+}
+:root {
+    --background-color: rgb(255, 255, 255);
+    --text-color: #000000;
+    --header-background: #eeeeee;
+    --nav-link-color: #000000;
+}
 
-#root{
-    background-color: rgb(255, 255, 255);
+
+.dark-mode {
+    --background-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --header-background: #333333;
+    --nav-link-color: #cccccc;
+}
+
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav {
+    background-color: var(--header-background);
+}
+.nav a {
+    color: var(--nav-link-color);
+}
+.category-item {
+    background-color: var(--header-background);
+    color: var(--text-color);
+}
+
+.category-item h3 {
+    color: var(--text-color);
+}
+
+.category-item .arrow-container {
+    background-color: var(--background-color);
+}
+.category-item:hover .arrow-container {
+    background-color: var(--header-background);
+}
+.category-item .arrow-icon {
+    color: var(--text-color);
 }
