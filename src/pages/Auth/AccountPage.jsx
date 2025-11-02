@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SignUpPage from "../components/AccountPage/SignUp";
-import LoginPage from "../components/AccountPage/Login";
+import SignUpPage from "./components/SignUpForm";
+import LoginPage from "./components/LoginForm";
 
 // Componente MiAccount mejorado con más funcionalidades
 function MiAccount() {

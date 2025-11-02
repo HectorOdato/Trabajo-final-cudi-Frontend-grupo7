@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import CategoryItem from './CategoryItem';
+import CategoryItem from '../../../components/CategoryItem';
 
 const CategoriesList = () => {
   const categories = [
