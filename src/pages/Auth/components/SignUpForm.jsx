@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { KeyRound, Mail, Smartphone, UserIcon } from 'lucide-react';
-import FormContainer from '../FormContainer';
+import FormContainer from "../../../components/FormContainer";
 
 const SignUpPage = () => {
   const [name, setName] = useState('');

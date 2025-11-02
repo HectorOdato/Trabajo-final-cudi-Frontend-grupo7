@@ -1,6 +1,6 @@
 import { KeyRound, Mail } from "lucide-react";
 import { useState } from "react";
-import FormContainer from "../FormContainer";
+import FormContainer from "../../../components/FormContainer";
 
 
 const LoginPage = () => {

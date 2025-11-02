@@ -1,4 +1,4 @@
-import CategoriesList from "../components/CategoriesList";
+import CategoriesList from "./components/CategoriesList";
 
 const HomePage = () => {
   return ( <>

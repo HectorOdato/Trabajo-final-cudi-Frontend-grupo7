@@ -1,8 +1,8 @@
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import Navbar from './components/Navbar';
-import AdminPage from './pages/AdminPage';
-import MiAccount from './pages/Miaccount';
+import AdminPage from './pages/AdminPage/ABMCPage';
+import AccountPage from './pages/Auth/AccountPage';
 import NavCategorias from './components/NavCategorias';
 import Footer from './components/Footer';
 import Computadoras from './pages/Computadoras';
@@ -19,7 +19,7 @@ const App = () => {
       <NavCategorias/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/micuenta" element={!userLogin ? <MiAccount/> : <Navigate to="/" />} />
+        <Route path="/micuenta" element={!userLogin ? <AccountPage/> : <Navigate to="/" />} />
         <Route path="/secret-dashboard" element={user.role === "admin" ? <AdminPage/> : <Navigate to="/login" />} />
         <Route path="/computadoras" element={<Computadoras />} />
         <Route path="/notebook" element={<Notebook />} />
