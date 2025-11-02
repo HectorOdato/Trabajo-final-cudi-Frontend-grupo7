@@ -6,7 +6,7 @@ import img_3 from '/public/images/Iphone_16.png'
 import img_4 from '/public/images/OIP.webp'
 
 const Celulares = () => {
-  return (
+    return (
     <>
         <h1 className='titulo-computadoras'>Celulares en Stock</h1>
         <section className='productos-computadoras'>

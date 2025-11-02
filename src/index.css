@@ -17,7 +17,6 @@ html, body, #root {
     --nav-link-color: #cccccc;
 }
 
-
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -45,5 +44,19 @@ body {
     background-color: var(--header-background);
 }
 .category-item .arrow-icon {
+    color: var(--text-color);.nav .boton-logout {
+    background-color: transparent;
+    border: 1px solid #000;
+}}
+.boton-logout {
+    background-color: transparent;
     color: var(--text-color);
+    border: 1px solid #000;
+}
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
 }

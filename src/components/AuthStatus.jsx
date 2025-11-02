@@ -7,13 +7,11 @@ const AuthStatus = ({ user = true }) => {
 
   return user ? (
     <button
-      className="bg-gray-700 hover:bg-600 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
-      onClick={() => setLogin(!login)}
-    >
-      <LogOut size={18} />
-      <span className="hiden sm:inline ml-2">Logout</span>
-    </button>
-  ) : (
+      className="flex items-center p-2 rounded-lg bg-transparent hover:bg-red-600 transition-colors">
+    <LogOut size={18} className="text-" />
+    <span className="hiden sm:inline ml-2 text-">Logout</span>
+  </button>
+) : (
     <>
       <Link
         to={'/signup'}
@@ -25,10 +23,10 @@ const AuthStatus = ({ user = true }) => {
       </Link>
       <Link
         to={'/login'}
-        className="bg-gray-700 hover:bg-emerald-600 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
+        className="bg-gray-700 hover:bg-emerald-600 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out ml-2"
       >
-        <UserPlus className="mr-2" size={18} />
         <LogIn className='mr-2' size={18} />
+        Login
       </Link>
     </>
   );
