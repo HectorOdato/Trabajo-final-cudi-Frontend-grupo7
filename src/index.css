@@ -1,18 +1,21 @@
 @import "tailwindcss";
+
 html, body, #root {
     height: 100%;
 }
 :root {
-    --background-color: rgb(255, 255, 255);
+    --background-color: #ffffff;
     --text-color: #000000;
     --header-background: #eeeeee;
     --nav-link-color: #000000;
+    animation: infinite;
+    -o-animation: infinite;
 }
 
 
 .dark-mode {
-    --background-color: #1a1a1a;
-    --text-color: #f0f0f0;
+    --background-color: #000000;
+    --text-color: #ffffff;
     --header-background: #333333;
     --nav-link-color: #cccccc;
 }
@@ -44,10 +47,12 @@ body {
     background-color: var(--header-background);
 }
 .category-item .arrow-icon {
-    color: var(--text-color);.nav .boton-logout {
+    color: var(--text-color);
+}
+.nav .boton-logout {
     background-color: transparent;
     border: 1px solid #000;
-}}
+}
 .boton-logout {
     background-color: transparent;
     color: var(--text-color);
@@ -59,4 +64,10 @@ body {
     gap: 20px;
     padding: 20px;
     justify-items: center;
+}
+.cursor-pointer {
+    cursor: pointer;
+    text-align: left;
+    border: 1px solid #707070; 
+    padding: 1px;
 }

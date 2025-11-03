@@ -35,7 +35,7 @@ import { AlignCenter, AlignCenterVertical, MoveRight } from "lucide-react";
       </div>
             <div>
         <button onClick={onToggleTheme} className="cursor-pointer flex items-center gap-2">
-          Cambiar Tema ☀️🌙
+          ☀️/🌙
         </button>
       </div>
     </nav>
