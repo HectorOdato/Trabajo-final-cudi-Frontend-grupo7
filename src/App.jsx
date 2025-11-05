@@ -30,7 +30,7 @@ const App = () => {
       <Router>
         
         <Navbar onToggleTheme={toggleDarkMode} />
-        <main className="">
+        <main>
           <NavCategorias/>
             <Routes>
               <Route path="/" element={<HomePage/>} />
