@@ -1,5 +1,73 @@
 @import "tailwindcss";
 
-#root{
-    background-color: rgb(255, 255, 255);
+html, body, #root {
+    height: 100%;
+}
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --header-background: #eeeeee;
+    --nav-link-color: #000000;
+    animation: infinite;
+    -o-animation: infinite;
+}
+
+
+.dark-mode {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --header-background: #333333;
+    --nav-link-color: #cccccc;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav {
+    background-color: var(--header-background);
+}
+.nav a {
+    color: var(--nav-link-color);
+}
+.category-item {
+    background-color: var(--header-background);
+    color: var(--text-color);
+}
+
+.category-item h3 {
+    color: var(--text-color);
+}
+
+.category-item .arrow-container {
+    background-color: var(--background-color);
+}
+.category-item:hover .arrow-container {
+    background-color: var(--header-background);
+}
+.category-item .arrow-icon {
+    color: var(--text-color);
+}
+.nav .boton-logout {
+    background-color: transparent;
+    border: 1px solid #000;
+}
+.boton-logout {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid #000;
+}
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+.cursor-pointer {
+    cursor: pointer;
+    text-align: left;
+    border: 1px solid #707070; 
+    padding: 1px;
 }
