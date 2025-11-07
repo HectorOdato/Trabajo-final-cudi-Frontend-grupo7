@@ -1,4 +1,3 @@
-import React from 'react'
 import '../css/Productos.css'
 import img_1 from '/public/images/Samsung_Pocket_Neo.png'
 import img_2 from '/public/images/Iphone_16_PRO.png'

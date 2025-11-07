@@ -30,13 +30,13 @@ return (
         <p className="text-gray-600">Inicia sesión o regístrate</p>
         <div className="flex justify-center mt-4">
             <button
-            onClick={() => setIsLogin(true)}
+            onClick={toggleView}
             className={`px-4 py-2 rounded-l-lg ${isLogin ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700'}`}
             >
             Iniciar Sesión
             </button>
             <button
-            onClick={() => setIsLogin(false)}
+            onClick={toggleView}
             className={`px-4 py-2 rounded-r-lg ${!isLogin ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700'}`}
             >
             Registrarse
