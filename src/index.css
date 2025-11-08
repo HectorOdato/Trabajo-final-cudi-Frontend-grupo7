@@ -8,10 +8,7 @@ html, body, #root {
     --text-color: #000000;
     --header-background: #eeeeee;
     --nav-link-color: #000000;
-    animation: infinite;
-    -o-animation: infinite;
 }
-
 
 .dark-mode {
     --background-color: #000000;
@@ -24,6 +21,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    
 }
 .nav {
     background-color: var(--header-background);
@@ -66,8 +64,11 @@ body {
     justify-items: center;
 }
 .cursor-pointer {
-    cursor: pointer;
+    cursor: pointer;  
+    background-color: var(--nav-link-color);
+    color: var(--text-color);
     text-align: left;
-    border: 1px solid #707070; 
+    border: 2px solid #818181; 
     padding: 1px;
+    border-radius: 8px; 
 }
