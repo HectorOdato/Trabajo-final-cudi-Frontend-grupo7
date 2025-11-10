@@ -1,123 +1,137 @@
 import { useState } from "react";
+import { createProduct } from "../../../components/services/ProductService";
 
-const CreateProductForm = ({ addProduct }) => {
+const CreateProductForm = () => {
   const categories = ['electronics', 'jewelery', "men's clothing", "women's clothing"];
 
   const [newProduct, setNewProduct] = useState({
-    title: '',
+    name: '',
     description: '',
     price: '',
     category: '',
     stock: '',
-    image: '',
+    image: null,
+    status:"true",
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct({ ...newProduct, [name]: value });
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-
     if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setNewProduct({
-          ...newProduct,
-          image: reader.result,
-        });
-      };
-      reader.readAsDataURL(file);
+      setNewProduct({ ...newProduct, image: file });
     }
   };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
-    console.log(e.target.value)
-
     try {
-      await addProduct(newProduct)
+      const formData = new FormData();
+      formData.append("name", newProduct.name);
+      formData.append("description", newProduct.description);
+      formData.append("price", newProduct.price);
+      formData.append("category", newProduct.category);
+      formData.append("stock", newProduct.stock);
+      formData.append("status", newProduct.status.toString())
+      if (newProduct.image) formData.append("image", newProduct.image);
+
+      await createProduct(formData);
+
       setNewProduct({
-        title: '',
+        name: '',
         description: '',
         price: '',
         category: '',
         stock: '',
-        image: '',
+        image: null,
+        status: true,
       });
+      alert("Producto creado con éxito");
     } catch (error) {
-      console.error('Error creando el producto: ', error);
+      console.error("Error creando el producto:", error.response?.data || error.message);
     }
   };
 
   return (
-<div className="bg-white shadow-2xl p-10 mb-10 max-w-5xl mx-auto border border-zinc-800">
-  <h2 className="text-3xl font-semibold mb-8 text-center text-zinc-900 tracking-wide">
-    <span className="text-red-500">+</span> Crear nuevo producto
-  </h2>
+    <div className="bg-white/80 backdrop-blur-sm shadow-lg p-10 mb-10 max-w-5xl mx-auto border border-gray-200 rounded-2xl">
+      <h2 className="text-3xl font-semibold mb-8 text-center text-gray-900 tracking-wide">
+        🛒 Crear nuevo producto
+      </h2>
 
-  <form onSubmit={handleSubmit} className="space-y-5">
-    <input
-      type="text"
-      placeholder="Título del producto"
-      value={newProduct.title}
-      onChange={(e) => setNewProduct({ ...newProduct, title: e.target.value })}
-      className="block w-full bg-white border border-zinc-700 text-gray-200 rounded-lg px-3 py-2 placeholder-gray-500 focus:ring-2 focus:ring-red-600 focus:outline-none transition"
-    />
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <input
+          type="text"
+          name="name"
+          placeholder="Título del producto"
+          value={newProduct.name}
+          onChange={handleChange}
+          className="block w-full bg-gray-50 border border-gray-300 text-gray-800 rounded-xl px-4 py-2.5 placeholder-gray-500 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
+        />
 
-    <textarea
-      placeholder="Descripción"
-      value={newProduct.description}
-      onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
-      className="block w-full bg-white border border-zinc-700 text-gray-200 rounded-lg px-3 py-2 placeholder-gray-500 focus:ring-2 focus:ring-red-600 focus:outline-none transition h-24"
-    />
+        <textarea
+          name="description"
+          placeholder="Descripción"
+          value={newProduct.description}
+          onChange={handleChange}
+          className="block w-full bg-gray-50 border border-gray-300 text-gray-800 rounded-xl px-4 py-2.5 placeholder-gray-500 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition h-28"
+        />
 
-    <input
-      type="number"
-      placeholder="Precio"
-      value={newProduct.price}
-      onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
-      className="block w-full bg-white border border-zinc-700 text-gray-200 rounded-lg px-3 py-2 placeholder-gray-500 focus:ring-2 focus:ring-red-600 focus:outline-none transition"
-    />
+        <input
+          type="number"
+          name="price"
+          placeholder="Precio"
+          value={newProduct.price}
+          onChange={handleChange}
+          className="block w-full bg-gray-50 border border-gray-300 text-gray-800 rounded-xl px-4 py-2.5 placeholder-gray-500 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
+        />
 
-    <select
-      value={newProduct.category}
-      onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
-      className="block w-full bg-white border border-zinc-700 text-black rounded-lg px-3 py-2 placeholder-gray-500 focus:ring-2 focus:ring-red-600 focus:outline-none transition"
-    >
-      <option value="">Seleccionar categoría</option>
-      {categories.map((category) => (
-        <option key={category} value={category}>
-          {category}
-        </option>
-      ))}
-    </select>
+        <select
+          name="category"
+          value={newProduct.category}
+          onChange={handleChange}
+          className="block w-full bg-gray-50 border border-gray-300 text-gray-800 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
+        >
+          <option value="">Seleccionar categoría</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
 
-    <input
-      type="number"
-      placeholder="Stock disponible"
-      value={newProduct.stock}
-      onChange={(e) => setNewProduct({ ...newProduct, stock: e.target.value })}
-      className="block w-full bg-white border border-zinc-700 text-black rounded-lg px-3 py-2 placeholder-gray-500 focus:ring-2 focus:ring-red-600 focus:outline-none transition"
-    />
+        <input
+          type="number"
+          name="stock"
+          placeholder="Stock disponible"
+          value={newProduct.stock}
+          onChange={handleChange}
+          className="block w-full bg-gray-50 border border-gray-300 text-gray-800 rounded-xl px-4 py-2.5 placeholder-gray-500 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
+        />
 
-    <div className="border border-dashed border-zinc-600 rounded-lg p-3 text-gray-400 hover:border-red-600 transition">
-      <label className="block text-sm mb-1 text-gray-400">Imagen del producto</label>
-      <input
-        type="file"
-        onChange={handleImageChange}
-        className="w-full text-sm text-gray-300 file:mr-3 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-red-700 file:text-white hover:file:bg-red-600 cursor-pointer transition"
-      />
+        <div className="border-2 border-dashed border-gray-300 rounded-xl p-4 text-gray-600 hover:border-neutral-700 transition">
+          <label className="block text-sm mb-2 font-medium text-gray-700">Imagen del producto</label>
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="w-full text-sm text-gray-700 file:mr-3 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-black file:text-white hover:file:bg-neutral-700 cursor-pointer transition"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-black hover:bg-neutral-700 text-white py-3 rounded-xl font-semibold tracking-wide transition shadow-md hover:shadow-red-400/30"
+        >
+          Crear producto
+        </button>
+      </form>
     </div>
+  );
+};
 
-    <button
-      type="submit"
-      className="w-full bg-red-700 hover:bg-red-600 text-white py-3 rounded-lg font-semibold tracking-wide transition shadow-md hover:shadow-red-500/20"
-    >
-      Crear producto
-    </button>
-  </form>
-</div>
-
-  )
-}
-
-export default CreateProductForm
+export default CreateProductForm;
