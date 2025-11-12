@@ -1,8 +1,23 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { createProduct } from "../../../components/services/ProductService";
+import { getAllCategories } from "../../../components/services/CategoryService"
 
 const CreateProductForm = () => {
-  const categories = ['electronics', 'jewelery', "men's clothing", "women's clothing"];
+  const [categories, setCategories] = useState([])
+
+useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const categoriesData = await getAllCategories();
+      setCategories(categoriesData);
+    } catch (error) {
+      console.error("Error cargando categorías:", error);
+    }
+  };
+
+  fetchCategories();
+}, []);
+
 
   const [newProduct, setNewProduct] = useState({
     name: '',
@@ -94,13 +109,14 @@ const CreateProductForm = () => {
           value={newProduct.category}
           onChange={handleChange}
           className="block w-full bg-gray-50 border border-gray-300 text-gray-800 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
-        >
-          <option value="">Seleccionar categoría</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
+>
+      <option value="">Seleccionar categoría</option>
+        {Array.isArray(categories) &&
+        categories.map((category) => (
+        <option key={category._id} value={category._id}>
+        {category.name}
+        </option>
+      ))}
         </select>
 
         <input

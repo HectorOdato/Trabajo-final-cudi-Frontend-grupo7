@@ -16,7 +16,7 @@ import AuthStatus from "./AuthStatus";
         <Link
           className="text-2xl font-bold text-red-700 items-center space-x-2 flex"
           to="/">
-          <p class="text-6xl text-red-500 font-bold">TecnoPro</p>
+          <p className="text-6xl text-red-500 font-bold">TecnoPro</p>
         </Link>
 
       </div>

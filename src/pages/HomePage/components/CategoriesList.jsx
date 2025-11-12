@@ -11,7 +11,7 @@ const CategoriesList = () => {
       
     },
     {
-      href: 'notebook',
+      href: 'notebooks',
       name: "Notebook",
       imageURL: '/images/notebookbanner.webp',
       Link: '/notebook',
