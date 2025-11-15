@@ -2,6 +2,7 @@ import { BarChart, PlusCircle, ShoppingCart } from 'lucide-react';
 
 const AdminTabs = ({ activeTab, setActiveTab }) => {
   const tabs = [
+    { id: 'categories', label: 'Crear categoría', icon: PlusCircle },
     { id: 'create', label: 'Crear producto', icon: PlusCircle },
     { id: 'products', label: 'Productos', icon: ShoppingCart },
     { id: 'analytics', label: 'Analytics', icon: BarChart },

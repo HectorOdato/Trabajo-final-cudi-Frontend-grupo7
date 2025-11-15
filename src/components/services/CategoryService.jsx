@@ -31,3 +31,23 @@ export const createCategory = async (categoryData) => {
     throw error
 }
 }
+
+export const removeCategory = async (id) => {
+    try {
+    const res = await axios.delete(`${API_URL}/${id}`)
+    return res.data
+} catch (error) {
+    console.error("Error al eliminar categoría:", error)
+    throw error
+}
+}
+
+export const updateCategory = async (id, categoryData) => {
+    try {
+    const res = await axios.put(`${API_URL}/${id}`, categoryData)
+    return res.data
+} catch (error) {
+    console.error("Error al actualizar categoría:", error)
+    throw error
+}
+}
