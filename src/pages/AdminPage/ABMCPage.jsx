@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import AdminTabs from './components/AdminTabs';
 import CreateProductForm from './components/CreateProductForm';
+import CreateCategoryForm from './components/CreateCategoryForm';
 import ProductList from './components/ProductList';
 import Analytics from './components/Analytics';
 
@@ -53,8 +54,8 @@ const AdminPage = () => {
         <h1 className='text-4xl font-bold mb-8 text-black text-center'>Panel de Administracion</h1>
 
         <AdminTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        {activeTab === 'create' && (
-          <CreateProductForm addProduct={addProduct} />
+        {activeTab === 'categories' && <CreateCategoryForm />}
+        {activeTab === 'create' && (<CreateProductForm addProduct={addProduct} />
         )}
         {activeTab === 'products' && (
           <ProductList products={products} removeProduct={removeProduct} toggleActive={toggleActive} />
