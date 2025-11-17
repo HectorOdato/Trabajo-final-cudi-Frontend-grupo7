@@ -1,104 +1,127 @@
-import { Star, Trash } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const ProductList = ({products, removeProducts, toggleActive}) => {
-  return (
-<div className="shadow-2xl overflow-hidden max-w-5xl mx-auto border border-zinc-800">
-  <table className="min-w-full divide-y ">
-    <thead className="bg-white border-b border-zinc-900">
-      <tr>
-        <th
-          scope="col"
-          className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 uppercase tracking-wider"
-        >
-          Producto
-        </th>
-        <th
-          scope="col"
-          className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 uppercase tracking-wider"
-        >
-          Precio
-        </th>
-        <th
-          scope="col"
-          className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 uppercase tracking-wider"
-        >
-          Categoría
-        </th>
-        <th
-          scope="col"
-          className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 uppercase tracking-wider"
-        >
-          Destacado
-        </th>
-        <th
-          scope="col"
-          className="px-6 py-4 text-left text-sm font-semibold text-zinc-900 uppercase tracking-wider"
-        >
-          Acciones
-        </th>
-      </tr>
-    </thead>
+const ProductList = ({
+  products,
+  fetchAllProducts,
+  updateProduct,
+  removeProduct,
+  enableProduct
+}) => {
 
-    <tbody className="bg-white divide-y divide-zinc-700">
-      {products.map((p) => (
-        <tr
-          key={p.id}
-          className="hover:bg-zinc-900/80 transition-colors duration-300"
-        >
-          <td className="px-10 py-8 whitespace-nowrap">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 h-10 w-10">
-                <img
-                  className="h-10 w-10 rounded-md object-cover border border-zinc-700"
-                  src={p.image}
-                  alt={p.name}
-                />
-              </div>
-              <div className="ml-4">
-                <div className="text-sm font-medium text-gray-200">{p.name}</div>
-              </div>
-            </div>
-          </td>
+const [editingId, setEditingId] = useState(null);
+const [editForm, setEditForm] = useState({
+  name: "",
+  description: "",
+  price: "",
+  });
 
-          <td className="px-6 py-4 whitespace-nowrap">
-            <div className="text-sm text-gray-400">${p.price.toFixed(2)}</div>
-          </td>
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
 
-          <td className="px-6 py-4 whitespace-nowrap">
-            <span className="px-3 py-1 inline-flex text-xs font-semibold rounded-full bg-zinc-800 text-gray-300 border border-zinc-700">
-              {p.category}
-            </span>
-          </td>
+const startEdit = (product) => {
+  setEditingId(product._id);
+  setEditForm({
+    name: product.name,
+    description: product.description,
+    price: product.price,
+    category: product.category,
+    stock: product.stock,
+  });
+};
 
-          <td className="px-6 py-4 whitespace-nowrap">
-            <button
-              type="button"
-              className={`p-2 rounded-full transition duration-300 ease-in-out ${
-                p.isFeatured
-                  ? "bg-yellow-500/20 text-yellow-400 hover:bg-yellow-500/30"
-                  : "bg-zinc-800 text-gray-400 hover:text-yellow-400 hover:bg-zinc-700"
-              }`}
-              onClick={() => toggleActive(p.id)}
-            >
-              <Star className="h-5 w-5" />
-            </button>
-          </td>
-
-          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-            <button
-              className="text-red-600 hover:text-red-400 transition duration-300 ease-in-out"
-              onClick={() => removeProducts(p.id)}
-            >
-              <Trash className="h-5 w-5" />
-            </button>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
-  );
+const cancelEdit = () => {
+    setEditingId(null);
+    setEditForm({
+  name: "",
+  description: "",
+  price: "",
+  category: "",
+  stock: "",
+});
 }
 
-export default ProductList
+const saveEdit = async (id) => {
+  try {
+    await updateProduct(id, editForm);
+    cancelEdit();
+    fetchAllProducts();
+    } catch (error) {
+      console.error("Error actualizando producto:", error);
+    }
+  };
+
+if (!Array.isArray(products)) {
+    return <p className="text-center mt-6 text-gray-600">Cargando productos...</p>;
+  }
+
+return (
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+    {products.map((product) => (
+      <div key={product._id} className="border rounded-xl p-4 shadow bg-white">
+        {editingId === product._id ? (
+          <div className="flex flex-col gap-3">
+            <input
+            className="border p-2 rounded"
+            value={editForm.name}
+            onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
+            placeholder="Nombre"
+            />
+            <textarea
+              className="border p-2 rounded"
+              value={editForm.description}
+              onChange={(e) =>
+              setEditForm({ ...editForm, description: e.target.value })}
+              placeholder="Descripción"
+              />
+            <input
+              type="number"
+              className="border p-2 rounded"
+              value={editForm.price}
+              onChange={(e) =>
+              setEditForm({ ...editForm, price: Number(e.target.value) })}
+              placeholder="Precio"
+              />
+            <input
+              className="border p-2 rounded"
+              value={editForm.category}
+              onChange={(e) =>
+              setEditForm({ ...editForm, category: e.target.value })}
+              placeholder="Categoría"
+              />
+            <input
+              type="number"
+              className="border p-2 rounded"
+              value={editForm.stock}
+              onChange={(e) =>
+              setEditForm({ ...editForm, stock: Number(e.target.value) })}
+              placeholder="Stock"
+              />
+            <div className="flex gap-2 mt-3">
+              <button
+              onClick={() => saveEdit(product._id)}
+              className="bg-blue-600 text-white px-3 py-2 rounded-lg"> Guardar </button>
+              <button onClick={cancelEdit} className="border px-3 py-2 rounded-lg"> Cancelar</button>
+              </div>
+            </div>) : (
+            <div>
+              <img src={product.image} alt={product.name} className="w-full h-40 object-cover rounded-lg mb-4"/>
+              <h2 className="text-xl font-bold">{product.name}</h2>
+              <p className="text-gray-600">{product.description}</p>
+              <p className="mt-2 font-semibold">${product.price}</p>
+              <div className="flex gap-2 mt-4">
+                <button onClick={() => startEdit(product)} className="px-3 py-2 bg-blue-500 text-white rounded-lg">Editar</button>{product.status ? (
+                  <button onClick={() => removeProduct(product._id)} className="px-3 py-2 bg-red-500 text-white rounded-lg">Deshabilitar </button>
+                ) : (
+                  <button onClick={() => enableProduct(product._id)} className="px-3 py-2 bg-green-500 text-white rounded-lg" >Habilitar</button>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ProductList;

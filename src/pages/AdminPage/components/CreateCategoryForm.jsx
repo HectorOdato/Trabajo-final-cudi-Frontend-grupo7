@@ -26,7 +26,6 @@ const CreateCategoryForm = () => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             if (editingCategory) {
                 await updateCategory(editingCategory._id, {
@@ -47,22 +46,20 @@ const CreateCategoryForm = () => {
             setDescription("");
             setEditingCategory(null);
             loadCategories();
-
         } catch (error) {
             console.error("Error:", error);
             setMessage("Error procesando la categoría");
         }
     };
 
-    const handleDelete = async (id) => {
-        try {
-            await removeCategory(id);
-            loadCategories();
+const handleDelete = async (id) => {
+    try {
+        await removeCategory(id);
+        loadCategories();
         } catch (error) {
             console.error("Error eliminando categoría:", error);
         }
     };
-
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
             <div className="bg-white p-6 rounded-lg shadow-md">
@@ -99,8 +96,7 @@ const CreateCategoryForm = () => {
                     </div>
                     <button
                         type="submit"
-                        className="bg-red-900 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md transition duration-300"
-                    >
+                        className="bg-red-900 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md transition duration-300">
                         {editingCategory ? "Guardar Cambios" : "Crear Categoría"}
                     </button>
                     {editingCategory && (
@@ -108,17 +104,15 @@ const CreateCategoryForm = () => {
                             onClick={() => {
                                 setEditingCategory(null);
                                 setName("");
-                                setDescription("");
-                            }}
+                                setDescription("");}}
                             className="ml-3 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md transition duration-300"
                             type="button">
-                            Cancelar
+                                Cancelar
                         </button>
                     )}
                 </form>
                 {message && (
-                    <p className="mt-4 text-center text-red-900 font-semibold">{message}</p>
-                )}
+                    <p className="mt-4 text-center text-red-900 font-semibold">{message}</p>)}
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold mb-4">Categorías Actuales</h2>
@@ -135,12 +129,10 @@ const CreateCategoryForm = () => {
                                     <p className="text-gray-600 text-sm">{cat.description}</p>
                                 </div>
                                 <div className="flex gap-2">
-                                    <button
-                                        onClick={() => {
+                                    <button onClick={() => {
                                             setEditingCategory(cat);
                                             setName(cat.name);
-                                            setDescription(cat.description);
-                                        }}
+                                            setDescription(cat.description);}}
                                         className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-md">
                                         Editar
                                     </button>
