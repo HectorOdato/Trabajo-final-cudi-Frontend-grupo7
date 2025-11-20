@@ -16,8 +16,8 @@ try {
 
 export const getProductsByCategory = async (category) => {
 try {
-    const res = await axios.get(`${API_URL}?category=${category}`);
-    return res.data;
+    const res = await axios.get(`${API_URL}/products/category/${category}`);
+    return res.data.products
 } catch (error) {
     throw error;
 } };
