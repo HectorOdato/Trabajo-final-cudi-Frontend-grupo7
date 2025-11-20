@@ -1,28 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
+import { getProductsByCategory } from "../components/services/CategoryService";
 
 const CategoryPage = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchProductsByCategory();
-  });
-  //mens-clothing
-  //https://fakestoreapi.com/products/category/mens-clothing
-
-  async function fetchProductsByCategory() {
-    try {
-      const response = await fetch(
-        `https://fakestoreapi.com/products/category/${category}`
-      );
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      console.error('Error fetching products:', error);
+    const fetchProducts = async () => {
+      try {
+        const data = await getProductsByCategory(id);
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products by category:", error);
     }
-  }
+};
+
+
+fetchProducts();
+}, [id]);
 
   return (
     <div className="min-h-screen">
@@ -38,7 +35,6 @@ const CategoryPage = () => {
               No hay productos en esta categoría
             </h2>
           )}
-
           {products.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
