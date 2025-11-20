@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import HomePage from './pages/HomePage/HomePage';
+import CategoryPage from './pages/CategoryPage';
 import Navbar from './components/Navbar';
 import MiAccount from './pages/Auth/AccountPage';
 import AdminPage from './pages/AdminPage/ABMCPage';
@@ -35,6 +36,7 @@ const App = () => {
               <Route path="/" element={<HomePage/>} />
                 <Route path="/micuenta" element={!userLogin ? <MiAccount/> : <Navigate to="/" />} />
                 <Route path="/secret-dashboard" element={user.role === "admin" ? <AdminPage/> : <Navigate to="/login" />} />
+                <Route path='/category/:category' element={<CategoryPage/>}/>
                 <Route path="/computadoras" element={<Computadoras />} />
                 <Route path="/notebook" element={<Notebook />} />
                 <Route path="/celulares" element={<Celulares />} />

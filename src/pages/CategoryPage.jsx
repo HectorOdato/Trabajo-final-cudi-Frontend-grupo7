@@ -1,0 +1,46 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
+import { getProductsByCategory } from "../components/services/ProductService";
+
+const CategoryPage = () => {
+  const { category: category } = useParams();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProductsByCategory(category);
+        setProducts(data);
+      } catch (error) {
+        console.error("Error al mostrar productos:", error);
+      }
+    };
+    if (category) {
+        fetchProducts();
+    }
+  }, [category]);
+  return (
+    <div className="min-h-screen">
+      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px--6 lg:px-8 py-16">
+        <h1 className="font-bold text-black text-4xl mb-8">
+          productos por categorias
+          <hr className="text-gray-400 w-100"/>
+        </h1>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
+          {products.length === 0 && (
+            <h2 className="text-3xl font-bold text-gray-400">
+              No hay productos en esta categoría
+            </h2>
+          )}
+          {products.map(product => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default CategoryPage

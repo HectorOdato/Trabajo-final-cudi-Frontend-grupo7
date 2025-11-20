@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const CategoryItem = ({ category }) => {
   return (
     <div className="group flex flex-col items-center justify-between bg-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out w-[280px] h-[360px]">
-      <Link to={`${category.Link}`} className="flex flex-col items-center justify-between w-full h-full">
+      <Link to={`/category/${category._id}`} className="flex flex-col items-center justify-between w-full h-full">
         <div className="flex items-center justify-center flex-grow">
           <img
             src={category.imageURL}
