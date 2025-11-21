@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import { URLDB } from "../config/api";
 
 
 
 
 function NavCategorias() {
   const categorias = [
-    { nombre: "Computadoras", path: "/computadoras" },
+    { nombre: "Computadoras", path: "/category"},
     { nombre: "Notebooks", path: "/notebook"},
     { nombre: "Celulares", path: "/celulares"},
     { nombre: "Televisores", path: "/televisores"},

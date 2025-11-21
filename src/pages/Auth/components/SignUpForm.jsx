@@ -10,7 +10,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     console.log('Email:', email);
     console.log('Password:', password);
@@ -18,20 +18,30 @@ const SignUpPage = () => {
     console.log('LastName:', lastName);
     console.log('Phone:', phone);
 
-    const response = fetch(`${URLDB}/auth/signup`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: name,
-        lastName: lastName,
-        phone: phone,
-        email: email,
-        password: password
-      }),
-    });
+    try {
+      const response = await fetch(`${URLDB}/auth/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name,
+          lastName: lastName,
+          phone: phone,
+          email: email,
+          password: password
+        }),
+      });
 
+      const data = await response.json();
+      console.log('Signup response:', data);
+
+      if (!response.ok) {
+        console.error('Signup failed:', response.status, data);
+      }
+    } catch (error) {
+      console.error('Network error during signup:', error);
+    }
   };
 
   const fields = [
