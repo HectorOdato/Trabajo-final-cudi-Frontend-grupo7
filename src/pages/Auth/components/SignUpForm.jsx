@@ -18,23 +18,8 @@ const SignUpPage = () => {
     console.log('LastName:', lastName);
     console.log('Phone:', phone);
 
-<<<<<<< HEAD
-    const response = fetch(`${URLDB}/auth/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: name,
-        lastName: lastName,
-        phone: phone,
-        email: email,
-        password: password
-      }),
-    });
-=======
     try {
-      const response = await fetch(`${URLDB}/auth/signup`, {
+      const response = await fetch(`${URLDB}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +32,6 @@ const SignUpPage = () => {
           password: password
         }),
       });
->>>>>>> 08aaa143ac1b2e7c867a6017e5a5821beeb01773
 
       const data = await response.json();
       console.log('Signup response:', data);
