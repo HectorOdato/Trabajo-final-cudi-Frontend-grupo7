@@ -28,7 +28,7 @@ const SignUpPage = () => {
           name: name,
           lastName: lastName,
           phone: Number(phone),
-          email: email,
+          username: email,
           password: password
         }),
       });
