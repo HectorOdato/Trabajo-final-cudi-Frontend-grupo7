@@ -27,7 +27,7 @@ const SignUpPage = () => {
         body: JSON.stringify({
           name: name,
           lastName: lastName,
-          phone: phone,
+          phone: Number(phone),
           email: email,
           password: password
         }),
@@ -69,7 +69,7 @@ const SignUpPage = () => {
       icon: Smartphone,
       value: phone,
       onChange: setPhone,
-      type: 'tel',
+      type: 'number',
       placeholder: 'Ej.: 123456789',
     },
     {
