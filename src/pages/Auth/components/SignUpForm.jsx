@@ -27,7 +27,7 @@ const SignUpPage = () => {
         body: JSON.stringify({
           name: name,
           lastName: lastName,
-          phone: phone,
+          phone: Number(phone),
           email: email,
           password: password
         }),
