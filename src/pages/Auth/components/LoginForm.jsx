@@ -1,16 +1,26 @@
 import { KeyRound, Mail } from "lucide-react";
 import { useState } from "react";
 import FormContainer from "../../../components/FormContainer";
-
+import { URLDB } from "../../../config/api";
+import React from "react";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+  const handleSubmit = () => {
+   // console.log('Email:', email);
+   // console.log('Password:', password);
+   const response = fetch(`${URLDB}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      }),
+    });
   };
 
   const fields = [

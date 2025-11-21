@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { KeyRound, Mail, Smartphone, UserIcon } from 'lucide-react';
 import FormContainer from "../../../components/FormContainer";
+import { URLDB } from "../../../config/api";
 
 const SignUpPage = () => {
   const [name, setName] = useState('');
@@ -16,6 +17,21 @@ const SignUpPage = () => {
     console.log('Name:', name);
     console.log('LastName:', lastName);
     console.log('Phone:', phone);
+
+    const response = fetch(`${URLDB}/auth/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name,
+        lastName: lastName,
+        phone: phone,
+        email: email,
+        password: password
+      }),
+    });
+
   };
 
   const fields = [
