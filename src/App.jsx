@@ -7,10 +7,6 @@ import MiAccount from './pages/Auth/AccountPage';
 import AdminPage from './pages/AdminPage/ABMCPage';
 import NavCategorias from './components/NavCategorias';
 import Footer from './components/Footer';
-import Computadoras from './pages/Computadoras';
-import Notebook from './pages/Notebook';
-import Celulares from './pages/Celulares';
-import Televisores from './pages/Televisores';
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -37,10 +33,6 @@ const App = () => {
                 <Route path="/micuenta" element={!userLogin ? <MiAccount/> : <Navigate to="/" />} />
                 <Route path="/secret-dashboard" element={user.role === "admin" ? <AdminPage/> : <Navigate to="/login" />} />
                 <Route path='/category/:category' element={<CategoryPage/>}/>
-                <Route path="/computadoras" element={<Computadoras />} />
-                <Route path="/notebook" element={<Notebook />} />
-                <Route path="/celulares" element={<Celulares />} />
-                <Route path="/televisores" element={<Televisores />} />
             </Routes>
             </main>
         <Footer/>

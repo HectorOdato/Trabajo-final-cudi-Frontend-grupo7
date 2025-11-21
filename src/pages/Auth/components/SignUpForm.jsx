@@ -18,7 +18,7 @@ const SignUpPage = () => {
     console.log('LastName:', lastName);
     console.log('Phone:', phone);
 
-    const response = fetch(`${URLDB}/auth/signup`, {
+    const response = fetch(`${URLDB}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
