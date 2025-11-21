@@ -69,7 +69,7 @@ const SignUpPage = () => {
       icon: Smartphone,
       value: phone,
       onChange: setPhone,
-      type: 'tel',
+      type: 'number',
       placeholder: 'Ej.: 123456789',
     },
     {
