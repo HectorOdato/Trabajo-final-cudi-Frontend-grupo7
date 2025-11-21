@@ -17,7 +17,7 @@ const [editForm, setEditForm] = useState({
 
   useEffect(() => {
     fetchAllProducts();
-  }, []);
+  }, [ fetchAllProducts, products, editingId, updateProduct, removeProduct, enableProduct]);
 
 const startEdit = (product) => {
   setEditingId(product._id);
