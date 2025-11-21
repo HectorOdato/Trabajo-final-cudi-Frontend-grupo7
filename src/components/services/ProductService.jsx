@@ -10,17 +10,19 @@ try {
     });
     return res.data;
 } catch (error) {
+    console.error("Error al crear producto:", error);
     throw error;
-}
-};
+}};
 
 export const getProductsByCategory = async (category) => {
 try {
     const res = await axios.get(`${API_URL}/products/category/${category}`);
     return res.data.products
-} catch (error) {
+}  catch (error) {
+    console.error("Error al obtener productos por categoría:", error);
     throw error;
-} };
+}
+};
 
 export const getAllProducts = async () => {
 try {

@@ -8,19 +8,34 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = () => {
-   // console.log('Email:', email);
-   // console.log('Password:', password);
-   const response = fetch(`${URLDB}/auth/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password
-      }),
-    });
+  const handleSubmit = async (e) => {
+   if (e && e.preventDefault) e.preventDefault();
+   
+   try {
+     const response = await fetch(`${URLDB}/auth/login`, {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({
+         email: email,
+         password: password
+       }),
+     });
+     const data = await response.json();
+     console.log('Login response:', data);
+     if (!response.ok) {
+       console.error('Login failed:', data);
+       // handle failure (show message, etc.)
+     } else {
+       // handle success (store token, redirect, etc.)
+       console.log('Login successful');
+     }
+   } catch (error) {
+     console.error('Network error during login:', error);
+   }
+    console.log('Email:', email);
+    console.log('Password:', password);
   };
 
   const fields = [
