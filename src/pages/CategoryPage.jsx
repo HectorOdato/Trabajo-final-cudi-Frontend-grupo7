@@ -23,11 +23,7 @@ const CategoryPage = () => {
   return (
     <div className="min-h-screen">
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px--6 lg:px-8 py-16">
-        <h1 className="font-bold text-black text-4xl mb-8">
-          productos por categorias
-          <hr className="text-gray-400 w-100"/>
-        </h1>
-
+        <p>Productos</p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
           {products.length === 0 && (
             <h2 className="text-3xl font-bold text-gray-400">
