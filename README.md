@@ -1,12 +1,64 @@
-# React + Vite
+# 🚀 Proyecto Final CUDI – E-Commerce | Grupo 7
+**Aplicación Web Full Stack – Frontend + Backend**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto **e-commerce** Trabajo final para la **Diplomatura en Desarrollo Web Fullstack 2025**
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📁 Estructura del Proyecto
+Frontend
 
-## Expanding the ESLint configuration
+*Integrantes del Equipo – Grupo 7*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Nombre              | GitHub                                                                             |
+| ------------------- | -----------------------------------------------------------------------------------|
+| **Héctor Odato**    | [https://github.com/HectorOdato](https://github.com/HectorOdato)                   |
+| **Leonardo Ortiz**  | [https://github.com/leonardo-jesus-ortiz](https://github.com/leonardo-jesus-ortiz) |
+| **Mariano Maza**    | [https://github.com/MarianoMaza](https://github.com/MarianoMaza)                   |
+
+
+📁 Estructura del Proyecto
+Frontend
+
+/src
+ ├──  /assets
+ ├──  /components
+ │     ├─  /services
+ │     │    ├─ CategoryService.jsx
+ │     │    └─ ProductService.jsx
+ │     ├─ AuthStatus.jsx
+ │     ├─ CartButton.jsx
+ │     ├─ CategoryItem.jsx
+ │     ├─ Dashboard.jsx
+ │     ├─ Footer.jsx
+ │     ├─ FormContainer.jsx
+ │     ├─ FormField.jsx
+ │     ├─ Navbar.jsx
+ │     ├─ NavbarBase.jsx
+ │     ├─ NavCategorias.jsx
+ │     ├─ ProductCard.jsx
+ │     └─ TitleForm.jsx
+ ├── /config
+ │     └─ api.js
+ ├── /pages
+ │     ├─ /AdminPage
+ │     │  ├── /components
+ │     │  │   ├── AdminTabs.jsx
+ │     │  │   ├── Analytics.jsx
+ │     │  │   ├── CreateCategoryForm.jsx
+ │     │  │   ├── CreateProductForm.jsx
+ │     │  │   └── ProductList.jsx
+ │     │  └── ABMCPage.jsx
+ │     ├─ /Auth
+ │     │   ├─/Components
+ │     │   │  ├── LoginForm.jsx
+ │     │   │  └── SignUpForm.jsx
+ │     │   └── AccountPage.jsx
+ │     ├─ /HomePage
+ │     │  ├─ /components
+ │     │  │  └─ CategoriesList.jsx
+ │     │  └─ HomePage.jsx
+ │     └─ CategoryPage.jsx
+ ├── App.jsx
+ ├── index.css
+ └── main.jsx
+
