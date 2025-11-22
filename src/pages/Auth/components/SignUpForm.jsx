@@ -25,9 +25,8 @@ const SignUpPage = () => {
 
     const payload = {
       name: name,
-      lastName: lastName,
+      lastname: lastName,
       phone: phoneNumber,
-      telephone: phoneNumber,
       email: email,
       password: password
     };
