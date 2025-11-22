@@ -5,7 +5,7 @@ import { API_URL} from "../../../config/api";
 
 const SignUpPage = () => {
   const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [lastname, setLastName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,7 +25,7 @@ const SignUpPage = () => {
 
     const payload = {
         name: name,
-        lastName: lastName,
+        lastname: lastname,
         phone: phoneNumber,
         email: email,
         password: password,
@@ -74,10 +74,10 @@ const SignUpPage = () => {
       placeholder: 'Ej.: Juan',
     },
     {
-      name: 'lastName',
+      name: 'lastname',
       label: 'Ingrese su apellido',
       icon: UserIcon,
-      value: lastName,
+      value: lastname,
       onChange: setLastName,
       type: 'text',
       placeholder: 'Ej.: Perez',
