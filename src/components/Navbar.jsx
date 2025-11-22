@@ -11,7 +11,7 @@ import AuthStatus from "./AuthStatus";
 
 
   return (
-    <nav className="flex justify-between px-50 py-5 nav">
+    <nav className="flex justify-between px-50 py-8 nav">
       <div className="flex justify-between">
         <Link
           className="text-2xl font-bold text-red-700 items-center space-x-2 flex"
@@ -29,9 +29,9 @@ import AuthStatus from "./AuthStatus";
         <NavbarBase user={user} cart={cart} />
       </div>
 
-      <div className="flex flex-col gap-8 justify-end ml-8">
-        <Dashboard isAdmin={isAdmin} />
+      <div className="flex gap-8 justify-end ml-8">
         <AuthStatus user={user} />
+        <Dashboard isAdmin={isAdmin} />
       </div>
             <div>
         <button onClick={onToggleTheme} className="cursor-pointer flex items-center gap-2">

@@ -7,11 +7,9 @@ const AuthStatus = ({ user = true }) => {
 
   return user ? (
     <button
-      className="bg-gray-700 hover:bg-600 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
-      onClick={() => setLogin(!login)}
-    >
-      <LogOut size={18} />
-      <span className="hiden sm:inline ml-2">Logout</span>
+      className="relative group text-black hover:text-red-400 transition duration-300 ease-in-out"
+      onClick={() => setLogin(!login)}>
+      <LogOut className="inline-block mr-1" size={28} />
     </button>
   ) : (
     <>

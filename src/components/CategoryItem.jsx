@@ -8,7 +8,7 @@ const CategoryItem = ({ category }) => {
           <img
             src={category.image}
             alt={category.name}
-            className="object-contain w-48 h-48 transition-transform duration-300 ease-in-out group-hover:scale-105"
+            className="object-contain w-48 h-48 rounded-2xl transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
         </div>
         <div className="w-full text-center mt-4">

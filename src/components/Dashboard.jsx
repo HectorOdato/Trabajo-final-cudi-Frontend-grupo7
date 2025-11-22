@@ -5,9 +5,9 @@ const Dashboard = ({ isAdmin = true }) => {
   return (
     isAdmin && (
       <Link
-        className="bg-red-600 hover:bg-red-600 text-white px-3 py-1 rounded-md font-medium transition duration-300 ease-in-out flex items-center" to={"/secret-dashboard"}>
-        <Lock className="inline-block mr-1" size={18} />
-        <span className="hidden sm:inline ml-2">Dashboard</span>
+        className="bg-gray-300 hover:bg-red-600 px-3 rounded-md font-medium transition duration-300 ease-in-out flex items-center mr-5" to={"/secret-dashboard"}>
+        <Lock className="inline-block mr-2" size={25} />
+        <span className="sm:inline ">Dashboard</span>
       </Link>
     )
   );
