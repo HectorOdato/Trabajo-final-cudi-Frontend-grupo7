@@ -49,12 +49,12 @@ export const updateProduct = async (id, data) => {
 );
 };
 
-export const removeProduct = async (id) => {
+export const disableProduct = async (id) => {
 try {
     const res = await axios.delete(`${API_URL}/products/${id}`);
     return res.data;
 } catch (error) {
-    console.error("Error al eliminar producto:", error);
+    console.error("Error al deshabilitar producto:", error);
     throw error;
 } };
 
@@ -64,5 +64,14 @@ try {
     return res.data;
 } catch (error) {
     console.error("Error al habilitar producto:", error);
+    throw error;
+} };
+
+export const deleteProduct = async (id) =>{
+    try{
+    const res = await axios.delete(`${API_URL}/products/remove/${id}`);
+    return res.data; 
+} catch (error) {
+    console.error("Error al eliminar producto:", error);
     throw error;
 } };
