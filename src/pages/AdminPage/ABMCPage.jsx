@@ -5,7 +5,7 @@ import CreateProductForm from './components/CreateProductForm';
 import CreateCategoryForm from './components/CreateCategoryForm';
 import ProductList from './components/ProductList';
 import Analytics from './components/Analytics';
-import { getAllProducts, removeProduct as apiRemoveProduct, enableProduct as apiEnableProduct, updateProduct as apiUpdateProduct } from '../../components/services/ProductService.jsx';
+import { getAllProducts, disableProduct , enableProduct , updateProduct , deleteProduct } from '../../components/services/ProductService.jsx';
 
 const AdminPage = () => {
     const [activeTab, setActiveTab] = useState('create');
@@ -26,9 +26,9 @@ const fetchAllProducts = useCallback(async () => {
     }
     }, [setProducts]);
 
-const handleRemoveProduct = async (id) => {
+const handleDisableProduct = async (id) => {
     try {
-        await apiRemoveProduct(id);
+        await disableProduct(id);
         setProducts(currentProducts => currentProducts.map(p => 
         p._id === id ? { ...p, status: false } : p
     ));
@@ -38,13 +38,24 @@ const handleRemoveProduct = async (id) => {
 
 const handleEnableProduct = async (id) => {
     try {
-        await apiEnableProduct(id);
+        await enableProduct(id);
         setProducts(currentProducts => currentProducts.map(p => 
         p._id === id ? { ...p, status: true } : p
     ));
     } catch (error) {
         console.error("Error al habilitar producto:", error);
     }};
+
+const handleDeleteProduct = async (id) => {
+        try {
+            await deleteProduct(id);
+            setProducts(currentProducts =>
+                currentProducts.filter(p => p._id !== id)
+            );
+        } catch (error) {
+            console.error("Error al borrar producto:", error);
+        }
+    };
 
 const addProduct = product => {
     console.log('Se esta agregando el producto: ', product);
@@ -57,7 +68,13 @@ const addProduct = product => {
         <AdminTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         {activeTab === 'categories' && <CreateCategoryForm />}
         {activeTab === 'create' && (<CreateProductForm addProduct={addProduct} />)}
-        {activeTab === 'products' && (<ProductList products={products} fetchAllProducts={fetchAllProducts}updateProduct={apiUpdateProduct} removeProduct={handleRemoveProduct} enableProduct={handleEnableProduct} />)}
+        {activeTab === 'products' && (<ProductList 
+        products={products} 
+        fetchAllProducts={fetchAllProducts}
+        updateProduct={updateProduct}
+        disableProduct={handleDisableProduct}
+        enableProduct={handleEnableProduct}
+        deleteProduct={handleDeleteProduct}  />)}
         {activeTab === 'analytics' && <Analytics />}
     </div>
     </div>

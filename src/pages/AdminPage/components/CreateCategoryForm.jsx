@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import {createCategory,getAllCategories,removeCategory,updateCategory} from "../../../components/services/CategoryService";
+import {createCategory,getAllCategories,removeCategory,updateCategory,} from "../../../components/services/CategoryService";
 
 const CreateCategoryForm = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [image,setImage] = useState("")
     const [message, setMessage] = useState("");
     const [categories, setCategories] = useState([]);
     const [editingCategory, setEditingCategory] = useState(null);
@@ -31,6 +32,7 @@ const CreateCategoryForm = () => {
                 await updateCategory(editingCategory._id, {
                     name,
                     description,
+                    image,
                     status: "true",
                 });
                 setMessage("Categoría actualizada con éxito");
@@ -38,12 +40,14 @@ const CreateCategoryForm = () => {
                 await createCategory({
                     name,
                     description,
+                    image,
                     status: "true",
                 });
                 setMessage("Categoría creada con éxito");
             }
             setName("");
             setDescription("");
+            setImage("")
             setEditingCategory(null);
             loadCategories();
         } catch (error) {
@@ -94,6 +98,20 @@ const handleDelete = async (id) => {
                             required
                         ></textarea>
                     </div>
+                    <div className="mb-4">
+                        <label className="block text-gray-700 font-bold mb-2" htmlFor="image">
+                            Imagen
+                        </label>
+                        <input
+                            type="text"
+                            id="image"
+                            placeholder="Inserte URL de imagen"
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}
+                            className="block w-full bg-gray-50 border border-gray-300 text-gray-800 rounded-xl px-4 py-2.5 placeholder-gray-500 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
+                            required
+                        />
+                    </div>
                     <button
                         type="submit"
                         className="bg-red-900 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md transition duration-300">
@@ -104,7 +122,8 @@ const handleDelete = async (id) => {
                             onClick={() => {
                                 setEditingCategory(null);
                                 setName("");
-                                setDescription("");}}
+                                setDescription("")
+                                setImage("");}}
                             className="ml-3 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md transition duration-300"
                             type="button">
                                 Cancelar
@@ -132,7 +151,8 @@ const handleDelete = async (id) => {
                                     <button onClick={() => {
                                             setEditingCategory(cat);
                                             setName(cat.name);
-                                            setDescription(cat.description);}}
+                                            setDescription(cat.description)
+                                            setImage(cat.image);}}
                                         className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-md">
                                         Editar
                                     </button>

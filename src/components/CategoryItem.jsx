@@ -6,7 +6,7 @@ const CategoryItem = ({ category }) => {
       <Link to={`/category/${category._id}`} className="flex flex-col items-center justify-between w-full h-full">
         <div className="flex items-center justify-center flex-grow">
           <img
-            src={category.imageURL}
+            src={category.image}
             alt={category.name}
             className="object-contain w-48 h-48 transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
