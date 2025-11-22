@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { Trash2 } from "lucide-react";
 
 const ProductList = ({
   products,
   fetchAllProducts,
   updateProduct,
-  removeProduct,
-  enableProduct
+  disableProduct,
+  enableProduct,
+  deleteProduct
 }) => {
 
 const [editingId, setEditingId] = useState(null);
@@ -17,7 +19,7 @@ const [editForm, setEditForm] = useState({
 
   useEffect(() => {
     fetchAllProducts();
-  }, [ fetchAllProducts, products, editingId, updateProduct, removeProduct, enableProduct]);
+  }, [ fetchAllProducts, products, editingId, updateProduct, disableProduct, enableProduct, deleteProduct]);
 
 const startEdit = (product) => {
   setEditingId(product._id);
@@ -111,10 +113,11 @@ return (
               <p className="mt-2 font-semibold">${product.price}</p>
               <div className="flex gap-2 mt-4">
                 <button onClick={() => startEdit(product)} className="px-3 py-2 bg-blue-500 text-white rounded-lg">Editar</button>{product.status ? (
-                  <button onClick={() => removeProduct(product._id)} className="px-3 py-2 bg-red-500 text-white rounded-lg">Deshabilitar </button>
+                  <button onClick={() => disableProduct(product._id)} className="px-3 py-2 bg-red-500 text-white rounded-lg">Deshabilitar </button>
                 ) : (
                   <button onClick={() => enableProduct(product._id)} className="px-3 py-2 bg-green-500 text-white rounded-lg" >Habilitar</button>
                 )}
+                  <button onClick={() => deleteProduct(product._id)} className="px-3 py-2 bg-red-700 text-white rounded-lg flex items-center gap-2"><Trash2 size={18} />Eliminar</button>
               </div>
             </div>
           )}

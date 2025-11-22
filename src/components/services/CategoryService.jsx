@@ -42,6 +42,7 @@ export const removeCategory = async (id) => {
 }
 }
 
+
 export const updateCategory = async (id, categoryData) => {
     try {
     const res = await axios.put(`${API_URL}/${id}`, categoryData)
