@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { KeyRound, Mail, Smartphone, UserIcon } from 'lucide-react';
 import FormContainer from "../../../components/FormContainer";
-import { URLDB } from "../../../config/api";
+import { API_URL} from "../../../config/api";
 
 const SignUpPage = () => {
   const [name, setName] = useState('');
@@ -12,35 +12,54 @@ const SignUpPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Name:', name);
-    console.log('LastName:', lastName);
-    console.log('Phone:', phone);
+
+    // soporta phone como string/number o como event ({ target: { value } })
+    const rawPhone =
+      phone && typeof phone === "object" && phone.target
+        ? phone.target.value
+        : phone;
+
+    // normalizar: quitar todo lo que no sea dígito
+    const digits = rawPhone ? String(rawPhone).replace(/\D/g, "") : "";
+    const phoneNumber = digits ? Number(digits) : null;
+
+    const payload = {
+      name: name,
+      lastName: lastName,
+      phone: phoneNumber,
+      telephone: phoneNumber,
+      email: email,
+      password: password
+    };
+
+    console.log("Signup payload:", payload, "rawPhone:", rawPhone);
 
     try {
-      const response = await fetch(`${URLDB}/auth/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: name,
-          lastName: lastName,
-          phone: Number(phone),
-          username: email,
-          password: password
-        }),
+      const response = await fetch(`${API_URL}/auth/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-      console.log('Signup response:', data);
+      const text = await response.text();
+      let data = null;
+      try {
+        data = text ? JSON.parse(text) : null;
+      } catch  {
+        data = text;
+      }
+
+      console.log("Signup response status:", response.status, "body:", data);
 
       if (!response.ok) {
-        console.error('Signup failed:', response.status, data);
+        console.error("Signup failed:", response.status, data);
+        return;
       }
+
+      console.log("Signup success:", data);
+      // redirigir o limpiar formulario
     } catch (error) {
-      console.error('Network error during signup:', error);
+      console.error("Network error during signup:", error);
     }
   };
 
