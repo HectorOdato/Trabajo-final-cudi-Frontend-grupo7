@@ -24,12 +24,13 @@ const SignUpPage = () => {
     const phoneNumber = digits ? Number(digits) : null;
 
     const payload = {
-      name: name,
-      lastname: lastName,
-      phone: phoneNumber,
-      email: email,
-      password: password
-    };
+        name: name,
+        lastName: lastName,
+        phone: phoneNumber,
+        email: email,
+        password: password,
+      };
+
 
     console.log("Signup payload:", payload, "rawPhone:", rawPhone);
 
