@@ -21,11 +21,12 @@ function NavCategorias() {
   return (
     <nav className="bg-neutral-700 text-white font-bold w-full text-2xl">
       <ul className="flex justify-center gap-8 p-4">
+    <li><Link to='/' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">Inicio</Link></li>
         {categorias.map((cat) => (
           <li key={cat._id}>
             <Link
               to={`/category/${cat._id}`} 
-              className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out"
+              className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out"
             >
               {cat.name}
             </Link>

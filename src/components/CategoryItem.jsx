@@ -12,7 +12,7 @@ const CategoryItem = ({ category }) => {
           />
         </div>
         <div className="w-full text-center mt-4">
-          <h3 className="text-lg font-bold text-gray-800 uppercase tracking-wide">
+          <h3 className="font-[Stack_Sans_Notch] text-lg font-bold text-gray-800 uppercase ">
             {category.name}
           </h3>
 

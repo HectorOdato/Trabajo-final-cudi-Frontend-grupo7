@@ -22,9 +22,10 @@ fetchCategories();
 
 
 return (
-    <div className="relative min-h-screen text-white overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden mt-15">
+      <h3 className="font-[Science_Gothic] text-5xl text-center">Explora nuestras categorias</h3>
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {categories.map(category => (
             <CategoryItem key={category.name} category={category} />
           ))}
