@@ -37,11 +37,10 @@ import { Lightbulb } from "lucide-react";
       </div>
             <div>
       <button
-  onClick={onToggleTheme}
-  className="cursor-pointer flex items-center justify-center w-12 h-12 bg-neutral-700 text-yellow-300 rounded-2xl hover:bg-neutral-600 transition shadow-md"
->
-  <Lightbulb className="w-6 h-6 text-yellow-300 " />
-</button>
+        onClick={onToggleTheme}
+        className="cursor-pointer flex items-center justify-center w-12 h-12 bg-neutral-700 rounded-2xl hover:bg-neutral-600 transition shadow-md">
+          <Lightbulb className="w-6 h-6 text-yellow-300 " />
+      </button>
 
       </div>
     </nav>
