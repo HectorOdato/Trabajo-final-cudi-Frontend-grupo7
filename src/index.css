@@ -13,10 +13,10 @@ html, body, #root {
 }
 
 .dark-mode {
-    --background-color: #000000;
-    --text-color: #ffffff;
-    --header-background: #333333;
-    --nav-link-color: #cccccc;
+    --background-color: #383535;
+    --text-color: #666060;
+    --header-background: #5e5858;
+    --nav-link-color: #494242;
 }
 
 body {
