@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllCategories } from "../components/services/CategoryService";
+import { getAllCategories } from "./services/CategoryService";
 
 function NavCategorias() {
   const [categorias, setCategorias] = useState([]);
@@ -22,8 +22,11 @@ function NavCategorias() {
   return (
     <nav className="bg-neutral-700 text-white font-bold w-full text-2xl">
       <ul className="flex justify-center gap-8 p-4">
-    <li><Link to='/' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">Inicio</Link></li>
-        <li className="relative">
+    <li><Link to='/' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">
+    Inicio
+    </Link>
+    </li>
+        <li className="relative ">
           <button
             onClick={() => abrirmenu(!open)}
             className="font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">
@@ -44,8 +47,14 @@ function NavCategorias() {
             </ul>
           )}
         </li>
-        <li><Link to='/help' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">Ayuda</Link></li>
-        <li><Link to='/contact' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">Contacto</Link></li>
+        <li><Link to='/help' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">
+        Ayuda
+        </Link>
+        </li>
+        <li><Link to='/contact' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">
+        Contacto
+        </Link>
+        </li>
       </ul>
     </nav>
   );

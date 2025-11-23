@@ -5,7 +5,7 @@ import CategoryPage from './pages/CategoryPage';
 import Navbar from './components/Navbar';
 import MiAccount from './pages/Auth/AccountPage';
 import AdminPage from './pages/AdminPage/ABMCPage';
-import NavCategorias from './components/NavCategorias';
+import Navmenu from './components/NavMenu';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
       <Router>
         <Navbar onToggleTheme={toggleDarkMode} />
         <main>
-          <NavCategorias/>
+          <Navmenu/>
             <Routes>
               <Route path="/" element={<HomePage/>} />
                 <Route path="/micuenta" element={!userLogin ? <MiAccount/> : <Navigate to="/" />} />
