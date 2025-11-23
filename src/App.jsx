@@ -7,6 +7,9 @@ import MiAccount from './pages/Auth/AccountPage';
 import AdminPage from './pages/AdminPage/ABMCPage';
 import Navmenu from './components/NavMenu';
 import Footer from './components/Footer';
+import Contact from './pages/Contact';
+import Faq from './pages/Faq';
+import TermAndConditions from './pages/TermsAndConditions'
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -33,6 +36,9 @@ const App = () => {
                 <Route path="/micuenta" element={!userLogin ? <MiAccount/> : <Navigate to="/" />} />
                 <Route path="/secret-dashboard" element={user.role === "admin" ? <AdminPage/> : <Navigate to="/login" />} />
                 <Route path='/category/:category' element={<CategoryPage/>}/>
+                <Route path='/contact' element={<Contact/>}/>
+                <Route path='/faq' element={<Faq/>}/>
+                <Route path='/termsAconditions' element={<TermAndConditions/>}/>
             </Routes>
             </main>
         <Footer/>
