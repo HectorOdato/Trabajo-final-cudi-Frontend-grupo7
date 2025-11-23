@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { KeyRound, Mail, Smartphone, UserIcon } from 'lucide-react';
 import FormContainer from "../../../components/FormContainer";
 import { API_URL} from "../../../config/api";
@@ -9,6 +10,8 @@ const SignUpPage = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -50,6 +53,16 @@ const SignUpPage = () => {
       }
 
       console.log("Signup response status:", response.status, "body:", data);
+
+      if (response.ok) {
+
+        // Guardar token en localStorage
+        localStorage.setItem("token", data.token);
+
+        console.log("Usuario registrado con éxito");
+        navigate('/');
+        return;
+      }
 
       if (!response.ok) {
         console.error("Signup failed:", response.status, data);
