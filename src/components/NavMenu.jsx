@@ -47,7 +47,7 @@ function NavCategorias() {
             </ul>
           )}
         </li>
-        <li><Link to='/help' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">
+        <li><Link to='/faq' className=" font-[Science_Gothic] text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">
         Ayuda
         </Link>
         </li>
