@@ -7,7 +7,7 @@ Este proyecto **e-commerce** Trabajo final para la **Diplomatura en Desarrollo W
 
 | Nombre              | GitHub                                                                             |
 | ------------------- | -----------------------------------------------------------------------------------|
-| **Héctor Odato**    | [https://github.com/HectorOdato](https://github.com/HectorOdato)                   |
+| **Hector Odato**    | [https://github.com/HectorOdato](https://github.com/HectorOdato)                   |
 | **Leonardo Ortiz**  | [https://github.com/leonardo-jesus-ortiz](https://github.com/leonardo-jesus-ortiz) |
 | **Mariano Maza**    | [https://github.com/MarianoMaza](https://github.com/MarianoMaza)                   |
 
@@ -17,14 +17,33 @@ Este proyecto **e-commerce** Trabajo final para la **Diplomatura en Desarrollo W
 2. Módulo de ABMC (Alta, Baja, Modificación, Consulta)
 
 ##Tecnologías Utilizadas
+
 ● {*Vite,Tailwindcss,Axios,Lucide-react-,NodeJS*}
+
 ● Git: Uso de Git para el control de versiones y colaboración.
+
 Hosting
 | Servicio          | URL              |
 | ----------------- | ---------------- |
 | Frontend (Vercel) | *https://trabajo-final-cudi-frontend-grupo7.vercel.app* |
 | Backend (Render)  | *https://trabajo-final-cudi-backend-grupo7.vercel.app* |
 | Base de Datos     | MongoDB Atlas    |
+
+
+
+## ⚙ Instalación y ejecución
+
+## ⚙ Clonar FrontEnd
+
+git clone git@github.com:HectorOdato/Trabajo-final-cudi-Frontend-grupo7.git
+cd Trabajo-final-cudi-Frontend-grupo7
+npm install
+npm run dev
+
+Dependencias necesarias frontend
+
+npm install lucide-react axios tailwind
+
 
 
 📁 Estructura del Proyecto
@@ -45,7 +64,7 @@ Frontend
  │     ├─ FormField.jsx
  │     ├─ Navbar.jsx
  │     ├─ NavbarBase.jsx
- │     ├─ NavCategorias.jsx
+ │     ├─ NavMenu.jsx
  │     ├─ ProductCard.jsx
  │     └─ TitleForm.jsx
  ├── /config
