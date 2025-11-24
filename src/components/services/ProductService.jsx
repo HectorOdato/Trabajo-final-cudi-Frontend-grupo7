@@ -3,7 +3,11 @@ import {API_URL} from "../../config/api.js";
 
 export const createProduct = async (productData) => {
 try {
-    const res = await axios.post(`${API_URL}/products`, productData,);
+    const res = await axios.post(`${API_URL}/products`, productData, {
+    headers: {
+        "Content-Type": "multipart/form-data",
+    },
+    });
     return res.data;
 } catch (error) {
     console.error("Error al crear producto:", error);
