@@ -1,7 +1,7 @@
 import { KeyRound, Mail } from "lucide-react";
 import { useState } from "react";
 import FormContainer from "../../../components/FormContainer";
-import { URLDB } from "../../../config/api";
+import { API_URL} from "../../../config/api";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${URLDB}/auth/login`, {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
