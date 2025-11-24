@@ -3,10 +3,6 @@
 
 Este proyecto **e-commerce** Trabajo final para la **Diplomatura en Desarrollo Web Fullstack 2025**
 
-
-📁 Estructura del Proyecto
-Frontend
-
 *Integrantes del Equipo – Grupo 7*
 
 | Nombre              | GitHub                                                                             |
@@ -14,6 +10,21 @@ Frontend
 | **Héctor Odato**    | [https://github.com/HectorOdato](https://github.com/HectorOdato)                   |
 | **Leonardo Ortiz**  | [https://github.com/leonardo-jesus-ortiz](https://github.com/leonardo-jesus-ortiz) |
 | **Mariano Maza**    | [https://github.com/MarianoMaza](https://github.com/MarianoMaza)                   |
+
+
+##Funcionalidades Principales
+1. Autenticación
+2. Módulo de ABMC (Alta, Baja, Modificación, Consulta)
+
+##Tecnologías Utilizadas
+● {*Vite,Tailwindcss,Axios,Lucide-react-,NodeJS*}
+● Git: Uso de Git para el control de versiones y colaboración.
+Hosting
+| Servicio          | URL              |
+| ----------------- | ---------------- |
+| Frontend (Vercel) | *https://trabajo-final-cudi-frontend-grupo7.vercel.app* |
+| Backend (Render)  | *https://trabajo-final-cudi-backend-grupo7.vercel.app* |
+| Base de Datos     | MongoDB Atlas    |
 
 
 📁 Estructura del Proyecto
