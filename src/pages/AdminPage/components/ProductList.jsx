@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Trash2 } from "lucide-react";
+import { getAllCategories } from "../../../components/services/CategoryService"
 
 const ProductList = ({
   products,
@@ -15,9 +16,29 @@ const [editForm, setEditForm] = useState({
   name: "",
   description: "",
   price: "",
+  category: "", 
+  stock: "", 
   });
 
+  const [categories, setCategories] = useState([]); 
+
+  const loadCategories = async () => {
+    try {
+        const data = await getAllCategories();
+        const list =
+            data?.data ||
+            data?.categories ||
+            data ||
+            [];
+        setCategories(list);
+    } catch (error) {
+        console.error("Error obteniendo categorías:", error);
+        setCategories([]);
+    }
+  };
+
   useEffect(() => {
+    loadCategories(); 
     fetchAllProducts();
   }, [ fetchAllProducts, products, editingId, updateProduct, disableProduct, enableProduct, deleteProduct]);
 
@@ -84,13 +105,22 @@ return (
               setEditForm({ ...editForm, price: Number(e.target.value) })}
               placeholder="Precio"
               />
-            <input
-              className="border p-2 rounded"
-              value={editForm.category}
+
+              <select
+              name="category"
+              value={editForm.category} 
               onChange={(e) =>
-              setEditForm({ ...editForm, category: e.target.value })}
-              placeholder="Categoría"
-              />
+                setEditForm({ ...editForm, category: e.target.value })
+              }
+              className="block w-full bg-gray-50 border border-gray-300 text-gray-800 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition">
+                <option value="">Seleccionar categoría</option>
+                  {Array.isArray(categories) &&
+                  categories.map((category) => (
+                    <option key={category._id} value={category._id}>
+                      {category.name}
+                    </option>
+                  ))}
+              </select>
             <input
               type="number"
               className="border p-2 rounded"
