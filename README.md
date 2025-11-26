@@ -18,7 +18,7 @@ Este proyecto **e-commerce** Trabajo final para la **Diplomatura en Desarrollo W
 
 ##Tecnologías Utilizadas
 
-● {*Vite,Tailwindcss,Axios,Lucide-react-,NodeJS*}
+● Vite, Tailwindcss, Axios, Lucide-react,  NodeJS
 
 ● Git: Uso de Git para el control de versiones y colaboración.
 
@@ -49,6 +49,7 @@ npm install lucide-react axios tailwind
 📁 Estructura del Proyecto
 Frontend
 
+```
 /src
  ├──  /assets
  ├──  /components
@@ -91,4 +92,5 @@ Frontend
  ├── App.jsx
  ├── index.css
  └── main.jsx
+ ```
 
