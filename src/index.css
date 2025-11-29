@@ -74,3 +74,8 @@ body {
     padding: 1px;
     border-radius: 8px; 
 }
+.carrusel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; 
+}
