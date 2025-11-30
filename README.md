@@ -12,11 +12,11 @@ Este proyecto **e-commerce** Trabajo final para la **Diplomatura en Desarrollo W
 | **Mariano Maza**    | [https://github.com/MarianoMaza](https://github.com/Mariano0910)                   |
 
 
-##Funcionalidades Principales
+## Funcionalidades Principales
 1. Autenticación
 2. Módulo de ABMC (Alta, Baja, Modificación, Consulta)
 
-##Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ● Vite, Tailwindcss, Axios, Lucide-react,  NodeJS
 
@@ -33,21 +33,23 @@ Hosting
 
 ## ⚙ Instalación y ejecución
 
-## ⚙ Clonar FrontEnd
-
+### ⚙ Clonar FrontEnd
+```
 git clone git@github.com:HectorOdato/Trabajo-final-cudi-Frontend-grupo7.git
 cd Trabajo-final-cudi-Frontend-grupo7
 npm install
 npm run dev
+```
 
-Dependencias necesarias frontend
-
+### Dependencias necesarias frontend
+```
 npm install lucide-react axios tailwind
+```
 
 
 
-📁 Estructura del Proyecto
-Frontend
+## 📁 Estructura del Proyecto
+### Frontend
 
 ```
 /src
