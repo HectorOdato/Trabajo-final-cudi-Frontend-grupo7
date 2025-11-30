@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 const Faq = () => {
     return (
-    <div className="flex flex-col w-7xl ml-100 justify-center items-center bg-white p-8 min-h-screen"> 
+    <div className="flex justify-center items-center min-h-screen bg-white">
+    <div className="flex flex-col w-full justify-center items-center p-8 sm:w-2/5 md:w-3/5 lg:w-3/5 xl:w-3/5"> 
         <h3 className="text-3xl mb-6 font-bold text-center">Preguntas Frecuentes</h3>
-        <div className="space-y-4 text-gray-800">
+        <div className="flex flex-col gap-4">
             <h4 className="text-xl font-semibold">1. ¿Cómo puedo realizar una compra?</h4>
             <p>Para realizar un pedido, simplemente navega por nuestro catálogo de productos, selecciona los artículos que deseas comprar y agrégalos a tu carrito. Luego, procede al pago siguiendo las instrucciones en pantalla.</p>
             <h4 className="text-xl font-semibold">2. ¿Cuáles son los métodos de pago aceptados?</h4>
@@ -26,6 +27,7 @@ const Faq = () => {
             <p>Puedes contactarnos a través de nuestro formulario de <Link to="/contact">[Contacto]</Link> en la página de  o enviando un correo electrónico a TecnoPro@gmail.com</p>
     </div>
     </div>
-    )}
+</div>
+)}
 
 export default Faq;
