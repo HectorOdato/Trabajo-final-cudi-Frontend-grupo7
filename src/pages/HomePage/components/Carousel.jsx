@@ -25,7 +25,7 @@ const Carousel = ({ images, interval = 3000 }) => {
     }
 
     return (
-    <div className="relative w-380 mx-auto overflow-hidden pt-10">
+    <div className="relative w-full mx-auto overflow-hidden pt-10 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-3/4">
         {images.map((img, index) => (
         <div
             key={index}
@@ -36,7 +36,7 @@ const Carousel = ({ images, interval = 3000 }) => {
             <img
             src={img}
             alt={`slide-${index}`}
-            className="w-380 h-120 object-cover rounded-lg shadow-lg transition-all duration-700"
+            className="w-full h-120 object-cover rounded-lg shadow-lg transition-all duration-700"
             />
         </div>
         ))}

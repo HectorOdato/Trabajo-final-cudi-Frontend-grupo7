@@ -7,9 +7,9 @@ const AuthStatus = ({ user = true }) => {
 
   return user ? (
     <button
-      className="relative group text-black hover:text-red-400 transition duration-300 ease-in-out"
+      className="relative group text-black hover:text-red-400 transition duration-300 ease-in-out mb-5"
       onClick={() => setLogin(!login)}>
-      <LogOut className="inline-block mr-1" size={28} />
+      <LogOut size={30} />
     </button>
   ) : (
     <>
